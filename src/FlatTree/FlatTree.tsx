@@ -1,6 +1,6 @@
-import * as React from "react";
-import flattenObject from "../flatten";
-import NativeCheckbox from "../Tree/NativeCheckbox";
+import * as React from 'react';
+import flattenObject from '../flatten';
+import NativeCheckbox from '../Tree/NativeCheckbox';
 
 interface FlatTreeProps {
   nodes: any[];
@@ -23,7 +23,7 @@ export default class FlatTree extends React.Component<
   }
 
   componentDidMount() {
-    console.log("FlatTree Mounted");
+    console.log('FlatTree Mounted');
 
     this.setState(prevState => {
       return {
@@ -59,14 +59,14 @@ export default class FlatTree extends React.Component<
         nodes: prevState.nodes
       };
     });
-  };
+  }
 
   public handleChange = (e: any) => {
     const { currentTarget } = e;
     const index = currentTarget.dataset.index;
     const isChecked = currentTarget.checked ? 1 : 0;
 
-    console.log("Handle change", { index });
+    console.log('Handle change', { index });
 
     this.setState(prevState => {
       Object.keys(prevState.nodes).forEach(nodeKey => {
@@ -83,7 +83,7 @@ export default class FlatTree extends React.Component<
         nodes: prevState.nodes
       };
     });
-  };
+  }
 
   public render() {
     const { nodes } = this.state;
@@ -104,15 +104,15 @@ export default class FlatTree extends React.Component<
               <div key={nodeKey}>
                 <p
                   style={{
-                    paddingLeft: nodes[nodeKey].path.length * 10 + "px"
+                    paddingLeft: nodes[nodeKey].path.length * 10 + 'px'
                   }}
                 >
                   {nodes[nodeKey].children ? (
                     <button data-index={nodeKey} onClick={this.expand}>
-                      {nodes[nodeKey].expanded ? "-" : "+"}
+                      {nodes[nodeKey].expanded ? '-' : '+'}
                     </button>
                   ) : (
-                    "*"
+                    '*'
                   )}
                   <NativeCheckbox
                     checked={nodes[nodeKey].state === 1}
@@ -122,7 +122,7 @@ export default class FlatTree extends React.Component<
                     id={nodes[nodeKey].path}
                   />
                   <label htmlFor={nodes[nodeKey].path}>
-                    {nodes[nodeKey].path}{" "}
+                    {nodes[nodeKey].path}{' '}
                   </label>
                 </p>
               </div>

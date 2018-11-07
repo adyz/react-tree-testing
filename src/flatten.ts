@@ -1,10 +1,11 @@
 const flattenObject = function(obj: any) {
   const toReturn: any = {};
 
-  function rec(obj: any, prevIndex: any) {
-    for (var i in obj) {
-      const { children, ...rest } = obj[i];
-      const myKey = "0" + prevIndex ? prevIndex + "-" + i : i;
+  function rec(myObj: any, prevIndex: any) {
+    // tslint:disable-next-line:forin
+    for (var i in myObj) {
+      const { children, ...rest } = myObj[i];
+      const myKey = '0' + prevIndex ? prevIndex + '-' + i : i;
       if (children && children.length > 0) {
         toReturn[myKey] = {
           ...rest,

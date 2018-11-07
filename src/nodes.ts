@@ -1,4 +1,4 @@
-import { INode } from "./Tree/Tree";
+import { INode } from './Tree/Tree';
 
 function nest(start: number, limit: number): INode[] {
   const parents = [];
@@ -16,6 +16,6 @@ function nest(start: number, limit: number): INode[] {
   return parents;
 }
 
-const nodes = nest(1, 12);
+const nodes = nest(1, 16);
 
 export default nodes;
